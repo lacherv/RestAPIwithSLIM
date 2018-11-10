@@ -20,14 +20,14 @@
                 $stmt->bind_param("ssss", $email, $password, $name, $school);
                 if($stmt->execute()) 
                 {
-
+                    return USER_CREATED;
                 }
                 else
                 {
-
+                    return USER_FAILURE;
                 }
-                return $stmt;
             }
+            return USER_EXIST;
         }
 
         private function isEmailExist($email)
@@ -36,7 +36,6 @@
             $stmt->bind_param("s", $email);
             $stmt->execute();
             $stmt->store_result();
-
             return $stmt->num_rows > 0;
         }
     }
