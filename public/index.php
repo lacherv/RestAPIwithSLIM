@@ -14,7 +14,7 @@
      *  Method: POST
      */
 
-    $app->post('/createuser', function(Request $request, Response $request){
+    $app->post('/createuser', function(Request $request, Response $response){
 
         if(!haveEmptyParameters(array('email', 'password', 'name', 'school'), $response)){
             $request_data = $request->getParseBody();
